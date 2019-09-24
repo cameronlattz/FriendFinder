@@ -5,11 +5,13 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../app/public/survey.html"));
     });
 
-    app.get("/js/survey.js", function(req, res) {
-        res.sendFile(path.join(__dirname, "../app/public/js/survey.js"));
+    // routes that don't have a .
+    app.get(/^[^\.]*$/, function(req, res) {
+        res.sendFile(path.join(__dirname, "../app/public/home.html"));
     });
 
+    // all other routes
     app.get("*", function(req, res) {
-        res.sendFile(path.join(__dirname, "../app/public/home.html"));
+        res.sendFile(path.join(__dirname, "../app/public/" + req.url));
     });
 };
