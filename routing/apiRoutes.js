@@ -1,11 +1,18 @@
+const fs = require("fs");
+
 module.exports = function(app) {
-    app.get("/api/all", function(req, res) {
-        res.send(["test","two"]);
-        console.log("api/all");
+    app.get("/api/friends", function(req, res) {
+        fs.readFile("app/data/friends.js", "utf8", function(error, data) {
+            if (error) return console.log(error);
+            const friends = JSON.parse(data);
+            res.send(friends);
+        });
     });
 
-    app.post("/api/new", function(req, res) {
-        const form = req.body;
-        console.log("api/new");
+    app.post("/api/friends", function(req, res) {
+        const friend = JSON.stringify(req.body);
+        fs.appendFile("app/data/friends.js", ",\n" + friend, function(error) {
+            if (error) return console.log(error);
+        });
     });
 };
