@@ -1,4 +1,13 @@
 (function() {
+    const displayModal = function(show) {
+        if (show) {
+            document.getElementById("modal").classList.add("show");
+            document.getElementById("fade").classList.add("show");
+        } else {
+            document.getElementById("modal").classList.remove("show");
+            document.getElementById("fade").classList.remove("show");
+        }
+    }
     const init = function() {
         document.getElementById("surveyForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -18,9 +27,17 @@
               })
             .then(function (response) { return response.json(); })
             .then(function (responseJson) {
-                console.log(responseJson);
+                document.getElementById("friendName").innerHTML = responseJson.name;
+                document.getElementById("friendPhoto").src = responseJson.photo;
+                displayModal(true);
             });
         });
+        const closeButtons = Array.from(document.getElementsByClassName("close"));
+        closeButtons.forEach(closeButton =>
+            closeButton.addEventListener("click", function(event) {
+                displayModal(false);
+            })
+        );
     }
 
     document.addEventListener("DOMContentLoaded", init);

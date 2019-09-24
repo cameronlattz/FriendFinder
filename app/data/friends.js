@@ -1,2 +1,1 @@
-{"name":"Ahmed","photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg","scores":[5,1,4,4,5,1,2,5,4,1]},
-{"name":"f","photo":"f","scores":[1,0,0,0,0,0,0,0,0,0]}
+[{"name":"Donald Trump","photo":"https://i1.wp.com/sluggerotoole.com/wp-content/uploads/2017/06/donald-trump-looking-smug.jpg","scores":[4,1,3,2,2,5,2,1,1,3]},{"name":"Cameron","photo":"https://pbs.twimg.com/profile_images/601861309366444032/VcNI7HPM_400x400.png","scores":[5,3,5,2,5,4,3,2,3,3]}]
