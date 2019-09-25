@@ -19,9 +19,8 @@ module.exports = function(app) {
             let closestFriend = {
                 name: "No friends added yet.",
                 photo: "https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/blogs/148105/2014/07/154399-158210.png",
-                scores: [11, 11, 11, 11, 11, 11, 11, 11, 11, 11]
             };
-            let closestFriendDifference = 200;
+            let closestFriendDifference = Number.MAX_SAFE_INTEGER;
             friends.forEach(friend => {
                 let difference = 0;
                 friend.scores.forEach((friendScore, index) => {
@@ -31,7 +30,6 @@ module.exports = function(app) {
                     closestFriend = friend;
                     closestFriendDifference = difference;
                 }
-                console.log(closestFriendDifference);
             });
             friends.push(user);
             fs.writeFile("app/data/friends.js", JSON.stringify(friends), function(error) {
