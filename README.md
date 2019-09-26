@@ -1,4 +1,6 @@
 # FriendFinder
+https://friend-finder-cl.herokuapp.com/
+
 FriendFinder is an app that matches users based on results of a survey they take.
 
 ### OVERVIEW:
